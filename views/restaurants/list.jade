@@ -1,0 +1,44 @@
+//
+   Created by labai on 15/02/2017.
+
+extends ../layout
+
+block content
+    h1 Restaurants
+
+    .container-fluid
+        .row.col-md-6
+            a.btn.btn-success(href="/restaurants/create") Create a restaurant
+        .row.col-md-3
+            form(method="GET" action="/restaurants/search").navbar-form
+                .input-group
+                    label(for="searchBox")
+                    input#searchBox.form-control(type="text" name="query" placeholder="What would you like to find today?")
+                    span.input-group-btn
+                        button.btn.btn-default.glyphicon.glyphicon-search(type="submit")
+
+    .container-fluid
+        .row
+            .col-md-12
+                table.table.table-striped.table-responsive
+                    thead
+                        th Name
+                        th Zip code
+                        th Neighborhood
+                        th councilDistrict
+                        th location
+                        th
+                        th
+                    tbody
+                        each resto in restaurants
+                            tr
+                                td
+                                    a(href="/restaurants/show/" + resto._id + "") #{resto.name}
+                                td #{resto.zipCode}
+                                td #{resto.neighborhood}
+                                td #{resto.councilDistrict}
+                                td #{resto.location}
+                                td
+                                    a.btn.btn-warning.btn-lg.glyphicon.glyphicon-pencil(href="/restaurants/edit/" + resto._id + "")
+                                td
+                                    a.btn.btn-danger.btn-lg.glyphicon.glyphicon-erase(href="/restaurants/delete/" + resto._id + "")

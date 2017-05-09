@@ -1,0 +1,41 @@
+extends layout
+
+block content
+  header
+    .container
+      .row
+        .col-lg-12
+          img.img-responsive(src='images/Chinese_meal.jpg', alt='Meal image')
+          .intro-text
+            span.name NoYelp
+            hr.star-light
+            span.skills Mangez, Notez, Partagez
+
+  section#popular
+    .container
+      .row
+        .col-lg-12.text-center
+          h2 Popular
+          hr.star-primary
+      .row
+  section#commented
+    .container
+      .row
+        .col-lg-12.text-center
+          h2 Commented
+          hr.star-primary
+      .row
+        for comment in commented
+          .col-sm-4
+            .panel-heading
+              h4 #{comment.title}
+            .panel-body
+              p #{comment.comment}
+
+  section#random
+    .container
+      .row
+        .col-lg-12.text-center
+          h2 Random
+          hr.star-primary
+      .row

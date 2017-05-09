@@ -1,0 +1,33 @@
+//
+   Created by labai on 15/02/2017.
+
+extends ../layout
+
+block content
+    .container-fluid
+    h1.text-center Edit #{restaurant.name}
+
+    .container-fluid
+        .row
+            .col-lg-6.col-lg-offset-3.col-xs-12.col-md-8.col-md-offset-2
+                form(method="POST" action="/restaurants/edit"+restaurant._id+"").form
+                    .form-group
+                        label(for="name") name
+                        input#name.form-control(type='text', name='name' value="#{restaurant.name}")
+                    .form-group
+                        label(for="zipCode") zipCode
+                        input#zipCode.form-control(type='number', name='zipCode' value="#{restaurant.zipCode}")
+                    .form-group
+                        label(for="neighborhood") neighborhood
+                        input#neighborhood.form-control(type='text', name='neighborhood' value="#{restaurant.neighborhood}")
+                    .form-group
+                        label(for="councilDistrict") councilDistrict
+                        input#councilDistrict.form-control(type='number', name='councilDistrict' value="#{restaurant.councilDistrict}")
+                    .form-group
+                        label(for="location") location
+                        input#location.form-control(type='text', name='location' value="#{restaurant.location}")
+                    .form-group
+                        .btn-group
+                    .btn-group-lg
+                        a.btn.btn-default.btn-lg(href="javascript:history.back()") Back
+                        button.btn.btn-primary.btn-lg(type="submit") Save

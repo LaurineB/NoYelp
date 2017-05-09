@@ -1,0 +1,78 @@
+//
+   Created by labai on 15/02/2017.
+
+extends ../layout
+
+block content
+    .container-fluid
+        h1 #{meal.name}
+    .container-fluid
+        .row
+            .col-lg-6.col-lg-offset-3.col-xs-12.col-md-8.col-md-offset-2
+                form(method="POST" action="/meals/edit/"+ meal._id + "").form
+                    .form-group
+                        label(for="name") name
+                        input#name.form-control(type='text', name='name' value='#{meal.name}')
+                    .form-group
+                        label(for="allergies") allergies
+                        input#allergies.form-control(type='text', name='allergies' value='#{meal.allergies}')
+                    .form-group
+                        label(for="ingredients") ingredients
+                        input#ingredients.form-control(type='text', name='ingredients' value='#{meal.ingredients}')
+                    .form-group
+                        label Vegan
+                        br
+                        if meal.vegan == true
+                            input(type='radio', name='vegan', value='true' checked="checked")
+                            |  Oui
+                            br
+                            input(type='radio', name='vegan', value='false')
+                            |  Non
+                            br
+                        else
+                            input(type='radio', name='vegan', value='true')
+                            |  Oui
+                            br
+                            input(type='radio', name='vegan', value='false' checked="checked")
+                            |  Non
+                            br
+                    .form-group
+                        label Halal
+                        br
+                        if meal.halal == true
+                            input(type='radio', name='halal', value='true' checked="checked")
+                            |  Oui
+                            br
+                            input(type='radio', name='halal', value='false')
+                            |  Non
+                            br
+                        else
+                            input(type='radio', name='halal', value='true')
+                            |  Oui
+                            br
+                            input(type='radio', name='halal', value='false' checked="checked")
+                            |  Non
+                            br
+                    .form-group
+                        label Kosher
+                        br
+                        if meal.kosher == true
+                            input(type='radio', name='kosher', value='true' checked="checked")
+                            |  Oui
+                            br
+                            input(type='radio', name='kosher', value='false')
+                            |  Non
+                            br
+                        else
+                            input(type='radio', name='kosher', value='true')
+                            |  Oui
+                            br
+                            input(type='radio', name='kosher', value='false' checked="checked")
+                            |  Non
+                            br
+
+                    input(type='text' name='restaurantId' value="#{meal.restaurantId}" hidden=true)
+                    .form-group
+                        .btn-group-lg
+                            a.btn.btn-default.btn-lg(href="/meals") Back
+                            button.btn.btn-success.btn-lg(type="submit") Add

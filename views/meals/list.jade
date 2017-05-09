@@ -1,0 +1,47 @@
+//
+   Created by labai on 15/02/2017.
+
+extends ../layout
+
+block content
+    .container-fluid
+        h1.text-center Meals
+
+    .container-fluid
+        .row
+            .col-md-12
+                table.table.table-striped.table-responsive
+                    thead
+                        th Name
+                        th Allergies
+                        th Ingredients
+                        th Vegan
+                        th Halal
+                        th Kosher
+                        th
+                        th
+                    tbody
+                        each meal in meals
+                            tr
+                                td #{meal.name}
+                                td #{meal.allergies}
+                                td #{meal.ingredients}
+                                td
+                                    if meal.vegan == true
+                                        |Oui
+                                    else
+                                        |Non
+                                td
+                                    if meal.halal == true
+                                        |Oui
+                                    else
+                                        |Non
+                                td
+                                    if meal.kosher == true
+                                        |Oui
+                                    else
+                                        |Non
+                                td
+                                    a.btn.btn-warning.btn-lg.glyphicon.glyphicon-pencil(href="/meals/edit/" + meal._id + "")
+                                td
+                                    a.btn.btn-danger.btn-lg.glyphicon.glyphicon-erase(href="/meals/delete/" + meal._id + "")

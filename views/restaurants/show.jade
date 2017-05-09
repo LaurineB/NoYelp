@@ -1,0 +1,80 @@
+//
+   Created by labai on 15/02/2017.
+
+extends ../layout
+
+block content
+    .container-fluid
+        h1.text-center #{restaurant.name}
+        a(href="javascript:history.back()" class="btn btn-default")
+        nav
+            ul
+                li
+                    a(href="#meals") Meals
+                li
+                    a(href="#comments") Comments
+        .container-fluid
+            h2.text-center(id="meals") Meals
+            .row
+                .col-md-12
+                    a(href="/meals/create/" + restaurant._id + "" class="btn btn-success") Create Meal
+                    table.table.table-striped.table-responsive
+                        thead
+                            th Name
+                            th Allergies
+                            th Ingredients
+                            th Vegan
+                            th Halal
+                            th Kosher
+                            th
+                            th
+                        tbody
+                            each meal in meals
+                                tr
+                                    td #{meal.name}
+                                    td #{meal.allergies}
+                                    td #{meal.ingredients}
+                                    td
+                                        if meal.vegan == true
+                                            |Oui
+                                        else
+                                            |Non
+                                    td
+                                        if meal.halal == true
+                                            |Oui
+                                        else
+                                            |Non
+                                    td
+                                        if meal.kosher == true
+                                            |Oui
+                                        else
+                                            |Non
+                                    td
+                                        a.btn.btn-warning.btn-lg.glyphicon.glyphicon-pencil(href="/meals/edit/" + meal._id + "")
+                                    td
+                                        a.btn.btn-danger.btn-lg.glyphicon.glyphicon-erase(href="/meals/delete/" + meal._id + "")
+        .container-fluid
+            h2.text-center(id="Comments") Comments
+            .row
+                .col-md-12
+                    a(href="/comments/create/"+restaurant._id+"" class="btn btn-success") Add a comment
+                    table.table.table-striped.table-responsive
+                        thead
+                            th Title
+                            th Comment
+                            th Pseudo
+                            th Rating
+                            th
+                            th
+                        tbody
+                            each comment in comments
+                                tr
+                                    td #{comment.title}
+                                    td #{comment.comment}
+                                    td #{comment.pseudo}
+                                    td #{comment.rating}
+                                    td
+                                        a.btn.btn-warning.btn-lg.glyphicon.glyphicon-pencil(href="/comments/edit/" + comment._id + "")
+                                    td
+                                        a.btn.btn-danger.btn-lg.glyphicon.glyphicon-erase(href="/comments/delete/" + comment._id + "")
+

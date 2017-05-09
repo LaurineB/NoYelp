@@ -1,0 +1,32 @@
+//
+   Created by labai on 15/02/2017.
+
+extends ../layout
+
+block content
+    .container-fluid
+    h1.text-center Add a Restaurant
+
+    .container-fluid
+        .row
+            .col-lg-6.col-lg-offset-3.col-xs-12.col-md-8.col-md-offset-2
+                form(method="POST" action="/restaurants/create").form
+                    .form-group
+                        label(for="name") name
+                        input#name.form-control(type='text', name='name')
+                    .form-group
+                        label(for="zipCode") zipCode
+                        input#zipCode.form-control(type='number', name='zipCode')
+                    .form-group
+                        label(for="neighborhood") neighborhood
+                        input#neighborhood.form-control(type='text', name='neighborhood')
+                    .form-group
+                        label(for="councilDistrict") councilDistrict
+                        input#councilDistrict.form-control(type='number', name='councilDistrict')
+                    .form-group
+                        label(for="location") location
+                        input#location.form-control(type='text', name='location')
+                    .form-group
+                        .btn-group-lg
+                            a.btn.btn-default.btn-lg(href="/restaurants") Back
+                            button.btn.btn-primary.btn-lg(type="submit") Add

@@ -1,0 +1,20 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+.box {
+  border: black 1px solid;
+}
+.panel-heading {
+  background-color: #2C3E50;
+  color : white;
+}
+.panel-body {
+  background-color: #18BC9C ;
+  color: white;
+  min-height: 100px;
+}
