@@ -7,3 +7,4 @@ The database use MongoDB.
 
 ## License
 License MIT
+Copyright (c) 2017 Laurine Baillet
