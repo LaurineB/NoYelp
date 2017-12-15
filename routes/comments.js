@@ -1,6 +1,3 @@
-/**
- * Created by labai on 15/02/2017.
- */
 
 var express = require('express');
 var router = express.Router();
@@ -14,9 +11,6 @@ router.get('/', function(req, res) {
     });
 });
 
-/******************/
-// CRUD
-/******************/
 router.get('/create/:restaurantId',function (req,res) {
     res.render('comments/create',{restaurantId : req.params.restaurantId});
 });

@@ -1,22 +1,17 @@
-/**
- * Created by labai on 15/02/2017.
- */
 
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var ObjectId = require('mongoose').ObjectId;
 
-/* GET home page. */
+
 router.get('/', function(req, res) {
     mongoose.model('Meal').find({},function (error,items) {
         res.render('meals/list',{ meals : items});
     });
 });
 
-/******************/
-// CRUD
-/******************/
+
 router.get('/create/:restaurantId',function (req,res) {
     res.render('meals/create',{restaurantId : req.params.restaurantId});
 });
@@ -53,9 +48,7 @@ router.get('/delete/:id', function (req,res) {
     });
 });
 
-/**************
- // * search
- *************/
+
 router.get('/search', function(req, res){
     mongoose.model('Meal').search({
             'dis_max': {

@@ -1,13 +1,10 @@
-/**
- * Created by labai on 15/02/2017.
- */
 
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var ObjectId = require('mongoose').ObjectId;
 
-/* GET home page. */
+
 router.get('/', function(req, res) {
     mongoose.model('Restaurant').find({},function (error,items) {
         console.log(items);
@@ -15,9 +12,6 @@ router.get('/', function(req, res) {
     });
 });
 
-/******************/
-// CRUD
-/******************/
 router.get('/create',function (req,res) {
     res.render('restaurants/create');
 });

@@ -4,7 +4,7 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #ff332e;
 }
 .box {
   border: black 1px solid;
@@ -14,7 +14,7 @@ a {
   color : white;
 }
 .panel-body {
-  background-color: #18BC9C ;
+  background-color: #678dbc;
   color: white;
   min-height: 100px;
 }

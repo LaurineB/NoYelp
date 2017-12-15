@@ -1,6 +1,3 @@
-/**
- * Created by labai on 15/02/2017.
- */
 
 var mongoose = require('mongoose');
 var mongoosastic = require('mongoosastic');
